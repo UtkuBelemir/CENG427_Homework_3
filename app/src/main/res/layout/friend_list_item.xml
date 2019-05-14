@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/friend_name"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:gravity="center_vertical"
+            android:textColor="#000" />
+        <TextView
+            android:id="@+id/friend_horoscope"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:gravity="center_vertical" />
+    </LinearLayout>
+</LinearLayout>

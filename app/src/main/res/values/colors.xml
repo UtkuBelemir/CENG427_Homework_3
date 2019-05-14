@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#81d4fa</color>
+    <color name="primaryLightColor">#b6ffff</color>
+    <color name="primaryDarkColor">#4ba3c7</color>
+    <color name="secondaryColor">#ffc400</color>
+    <color name="secondaryLightColor">#fff64f</color>
+    <color name="secondaryDarkColor">#c79400</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="secondaryTextColor">#000000</color>
+    <color name="horoscopeTextColor">#FFFFFF</color>
+
+    <color name="horoscopeRed">#F30909</color>
+    <color name="horoscopeRedLight">#F99696</color>
+    <color name="horoscopeOrange">#FF5000</color>
+    <color name="horoscopeOrangeLight">#F0AA8A</color>
+    <color name="horoscopeBlue">#0054FF</color>
+    <color name="horoscopeBlueLight">#A4C2FF</color>
+    <color name="horoscopeGreen">#22CE00</color>
+    <color name="horoscopeGreenLight">#A5DB9B</color>
+
+    <color name="inputColor">#2f3542</color>
+    <color name="inputColorHint">#57606f</color>
+</resources>

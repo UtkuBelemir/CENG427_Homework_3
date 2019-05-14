@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Final Burc</string>
+    <string name="action_settings">Settings</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="hrName_capricorn">Capricorn</string>
+    <string name="hrContentDesc_capricorn">Capricorn Icon</string>
+    <string name="hrDate_capricorn">Dec 22 - Jan 19</string>
+
+    <string name="hrName_aquarius">Aquarius</string>
+    <string name="hrContentDesc_aquarius">Aquarius Icon</string>
+    <string name="hrDate_aries">Jan 20 - Feb 18</string>
+
+    <string name="hrName_pisces">Pisces</string>
+    <string name="hrContentDesc_pisces">Pisces Icon</string>
+    <string name="hrDate_pisces">Feb 19 -Mar 20</string>
+
+    <string name="hrName_aries">Aries</string>
+    <string name="hrContentDesc_aries">Aries Icon</string>
+    <string name="hrDate_aquarius">Mar 21 - Apr 19</string>
+
+    <string name="hrName_taurus">Taurus</string>
+    <string name="hrContentDesc_taurus">Taurus Icon</string>
+    <string name="hrDate_taurus">Apr 20 - May 20</string>
+
+    <string name="hrName_gemini">Gemini</string>
+    <string name="hrContentDesc_gemini">Gemini Icon</string>
+    <string name="hrDate_gemini">May 21 - Jun 20</string>
+
+    <string name="hrName_cancer">Cancer</string>
+    <string name="hrContentDesc_cancer">Cancer Icon</string>
+    <string name="hrDate_cancer">Jun 21 - Jul 22</string>
+
+    <string name="hrName_leo">Leo</string>
+    <string name="hrContentDesc_leo">Leo Icon</string>
+    <string name="hrDate_leo">Jul 23 - Aug 22</string>
+
+    <string name="hrName_virgo">Virgo</string>
+    <string name="hrContentDesc_virgo">Virgo Icon</string>
+    <string name="hrDate_virgo">Aug 23 - Sep 22</string>
+
+    <string name="hrName_libra">Libra</string>
+    <string name="hrContentDesc_libra">Libra Icon</string>
+    <string name="hrDate_libra">Sep 23 - Oct 22</string>
+
+    <string name="hrName_scorpio">Scorpio</string>
+    <string name="hrContentDesc_scorpio">Scorpio Icon</string>
+    <string name="hrDate_scorpio">Oct 23 - Nov 21</string>
+
+    <string name="hrName_sagittarius">Sagittarius</string>
+    <string name="hrContentDesc_sagittarius">Sagittarius Icon</string>
+    <string name="hrDate_sagittarius">Nov 22 - Dec 21</string>
+</resources>
