@@ -1,4 +1,4 @@
-# CENG427 Homework 2
+# CENG427 Homework 3
 14050111027 - Serenay Şerefler
 14050111038 - Utku Belemir Elmalıoğlu
 
