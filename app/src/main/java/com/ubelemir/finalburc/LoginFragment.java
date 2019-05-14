@@ -104,7 +104,10 @@ public class LoginFragment extends Fragment {
                     }
                     Toast.makeText(getContext(),"Login Successful",Toast.LENGTH_SHORT).show();
                     Intent hrList = new Intent(getActivity(),HoroscopeListActivity.class);
+                    hrList.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(hrList);
+                } else {
+                    Toast.makeText(getActivity(),resp.getString("message"),Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception err) {
                 err.printStackTrace();
@@ -114,7 +117,6 @@ public class LoginFragment extends Fragment {
         @Override
         public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
             try {
-                Log.i("Signup resp fal",new String(responseBody));
                 JSONObject resp = new JSONObject(new String(responseBody));
                 Toast.makeText(getContext(),resp.get("message").toString(),Toast.LENGTH_SHORT).show();
             } catch (Exception err) {

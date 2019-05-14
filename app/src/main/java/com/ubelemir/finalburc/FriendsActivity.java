@@ -1,10 +1,13 @@
 package com.ubelemir.finalburc;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,6 +27,7 @@ public class FriendsActivity extends AppCompatActivity {
         friendHeaderEmail.setText(activeUser.email);
         friendHeaderHoroscope.setText(Horoscope.horoscopehMap.get(activeUser.horoscope).name);
         friendHeaderHoroscope.setTextColor(getColor(userHoroscope.color));
+
         FABController fabController = new FABController(this);
         fabController.hideButton("friends");
         TabLayout friendTabs = (TabLayout) findViewById(R.id.friendTabs);

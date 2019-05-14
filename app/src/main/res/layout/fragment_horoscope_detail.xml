@@ -5,10 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".HoroscopeDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/contentText"
+    <!--
+    android:text=" The day's beauty may not be apparent when you wake up this morning, but as the hours go by, you'll begin to realize that romance is all around you. Don't be surprised if you sense some eyes lingering on you for longer than usual—someone is intrigued, and there is a real romance possibility in the air! You may not want to explore this possibility (especially if your heart is already taken), but there's no denying that the attention will give your ego a nice boost 2019 will be your year!"
+    -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/firasans"
+            android:lineSpacingExtra="16dp"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="72dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </ScrollView>
 
 </FrameLayout>

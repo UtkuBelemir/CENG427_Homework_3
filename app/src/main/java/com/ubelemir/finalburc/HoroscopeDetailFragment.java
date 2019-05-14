@@ -1,6 +1,7 @@
 package com.ubelemir.finalburc;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,7 +24,7 @@ public class HoroscopeDetailFragment extends Fragment {
         activeHoroscope = Horoscope.horoscopehMap.get(horoscopeKey);
         TextView contentText = (TextView) fragmentView.findViewById(R.id.contentText);
         try {
-            contentText.setText(activeHoroscope.content.getString(timeRange));
+            contentText.setText("\t\t\t"+activeHoroscope.content.getString(timeRange));
         } catch (Exception err) {
             err.printStackTrace();
         }

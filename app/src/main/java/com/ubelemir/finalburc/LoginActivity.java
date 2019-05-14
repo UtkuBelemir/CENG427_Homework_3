@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Horoscope.initializeHoroscopes();
         setContentView(R.layout.start_screen);
         cookieManager = getSharedPreferences("finalBurc", MODE_PRIVATE);
         int userID = cookieManager.getInt("userID",-1);
@@ -44,27 +45,19 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 JSONObject resp = new JSONObject(new String(responseBody));
                 JSONObject respData = resp.getJSONObject("data");
-                User.getIns().userID = respData.getInt("user_id");
-                User.getIns().email = respData.getString("email");
-                User.getIns().name = respData.getString("name");
-                User.getIns().lastname = respData.getString("lastname");
-                User.getIns().birth_date = BigInteger.valueOf(respData.getInt("birth_date"));
-                User.getIns().horoscope = respData.getString("horoscope").toLowerCase();
+                JSONArray respFriends = null;
                 if (!respData.isNull("friends")) {
-                    JSONArray respFriends = respData.getJSONArray("friends");
-                    User.getIns().friends = new ArrayList<Friends>();
-                    for (int i = 0; i < respFriends.length(); i++) {
-                        JSONObject tempFriend = respFriends.getJSONObject(i);
-                        User.getIns().friends.add(
-                                new Friends(
-                                        tempFriend.getString("name"),
-                                        tempFriend.getString("lastname"),
-                                        tempFriend.getString("horoscope"),
-                                        BigInteger.valueOf(tempFriend.getInt("birth_date"))
-                                )
-                        );
-                    }
+                    respFriends = respData.getJSONArray("friends");
                 }
+                User.initializeUser(
+                        respData.getInt("user_id"),
+                        respData.getString("email"),
+                        respData.getString("name"),
+                        respData.getString("lastname"),
+                        BigInteger.valueOf(respData.getInt("birth_date")),
+                        respData.getString("horoscope").toLowerCase(),
+                        respFriends
+                );
                 Intent hrList = new Intent(getApplicationContext(),HoroscopeListActivity.class);
                 startActivity(hrList);
             } catch (Exception err) {

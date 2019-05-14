@@ -1,6 +1,7 @@
 package com.ubelemir.finalburc;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,11 +22,7 @@ public class HoroscopeContent extends AppCompatActivity {
         Intent horoscopeContent = getIntent();
         String hrKey = horoscopeContent.getStringExtra("horoscopeKey");
         activeHoroscope = Horoscope.horoscopehMap.get(hrKey);
-        try {
-            Log.i("GELDIM :)",activeHoroscope.content.getString("daily"));
-        } catch (Exception err){
-            err.printStackTrace();
-        }
+
         TabLayout timeTabs = (TabLayout) findViewById(R.id.controlTabs);
         LinearLayout contentHeader = (LinearLayout) findViewById(R.id.horoscopeContentHeader);
         ImageView headerImage = (ImageView) findViewById(R.id.horoscopeContentHeaderImage);

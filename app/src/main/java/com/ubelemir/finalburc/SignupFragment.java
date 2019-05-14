@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
@@ -103,9 +104,23 @@ public class SignupFragment extends Fragment {
                 JSONObject resp = new JSONObject(new String(responseBody));
                 if (resp.getBoolean("success")) {
                     JSONObject respData = resp.getJSONObject("data");
+                    JSONArray respFriends = null;
+                    if (!respData.isNull("friends")) {
+                        respFriends = respData.getJSONArray("friends");
+                    }
+                    User.initializeUser(
+                            respData.getInt("user_id"),
+                            respData.getString("email"),
+                            respData.getString("name"),
+                            respData.getString("lastname"),
+                            BigInteger.valueOf(respData.getInt("birth_date")),
+                            respData.getString("horoscope").toLowerCase(),
+                            respFriends
+                    );
                     cookieManager.edit().putInt("userID",respData.getInt("user_id")).apply();
                     Toast.makeText(getContext(),"Login Successful",Toast.LENGTH_SHORT).show();
                     Intent hrListIntent = new Intent(getActivity(),HoroscopeListActivity.class);
+                    hrListIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(hrListIntent);
                 }
             } catch (Exception err) {
@@ -116,7 +131,6 @@ public class SignupFragment extends Fragment {
         @Override
         public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
             try {
-                Log.i("Signup resp fal",new String(responseBody));
                 JSONObject resp = new JSONObject(new String(responseBody));
                 Toast.makeText(getContext(),resp.get("message").toString(),Toast.LENGTH_SHORT).show();
             } catch (Exception err) {

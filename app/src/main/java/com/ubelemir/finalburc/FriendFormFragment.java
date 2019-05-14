@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -31,21 +33,20 @@ import cz.msebera.android.httpclient.entity.StringEntity;
  */
 public class FriendFormFragment extends Fragment {
 
-    TextView friendFormName;
-    TextView friendFormLastname;
-    TextView friendBirthDay;
-    TextView friendBirthMonth;
+    EditText friendFormName;
+    EditText friendFormLastname;
+    EditText friendBirthDay;
+    EditText friendBirthMonth;
     ViewPager friendPager;
     ListView friendList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View mainView = inflater.inflate(R.layout.fragment_friend_form, container, false);
-        friendFormName = (TextView) mainView.findViewById(R.id.friendFormName);
-        friendFormLastname = (TextView) mainView.findViewById(R.id.friendFormLastname);
-        friendBirthDay = (TextView) mainView.findViewById(R.id.friendBirthDay);
-        friendBirthMonth = (TextView) mainView.findViewById(R.id.friendBirthMonth);
+        friendFormName = (EditText) mainView.findViewById(R.id.friendFormName);
+        friendFormLastname = (EditText) mainView.findViewById(R.id.friendFormLastname);
+        friendBirthDay = (EditText) mainView.findViewById(R.id.friendBirthDay);
+        friendBirthMonth = (EditText) mainView.findViewById(R.id.friendBirthMonth);
         TextView friendFormButton = (TextView) mainView.findViewById(R.id.friendFormButton);
         friendFormButton.setOnClickListener(formButtonClick);
         friendPager = (ViewPager) getActivity().findViewById(R.id.friendTabPager);
@@ -58,7 +59,7 @@ public class FriendFormFragment extends Fragment {
         public void onClick(View v) {
             Calendar tempDate = Calendar.getInstance();
             User activeUser = User.getIns();
-            tempDate.set(2019, Integer.parseInt(friendBirthDay.getText().toString()) - 1, Integer.parseInt(friendBirthMonth.getText().toString()));
+            tempDate.set(2019, Integer.parseInt(friendBirthMonth.getText().toString()) - 1, Integer.parseInt(friendBirthDay.getText().toString()));
             Friends tempFriend = new Friends(
                     friendFormName.getText().toString(),
                     friendFormLastname.getText().toString(),
@@ -72,8 +73,11 @@ public class FriendFormFragment extends Fragment {
             try {
                 AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
                 StringEntity entity = new StringEntity(activeUser.userToObject().toString());
-                Log.i("POSTDAT",activeUser.userToObject().toString());
                 asyncHttpClient.post(getContext(),Utils.hostURL+"/user",entity,"application/json",formPostHandler);
+                friendFormName.setText("");
+                friendFormLastname.setText("");
+                friendBirthDay.setText("");
+                friendBirthMonth.setText("");
             } catch (Exception err) {
                 err.printStackTrace();
             }
@@ -110,7 +114,6 @@ public class FriendFormFragment extends Fragment {
 
         @Override
         public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-            Log.i("EKLENEMEDI",new String(responseBody));
         }
     };
 }
